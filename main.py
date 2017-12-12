@@ -14,10 +14,10 @@ else:
     letters = Chain()
     file.file_setup(lines)
     for str in file.lines:
-        list.add(str)
         for char in str:
             if char.isalpha() and letters.find(char) is False:
                 letters.add(char)
     for char in file.facts:
         letters.set_true(char)
-    letters.display_bool()
+    letters.add_rules(file.lines)
+    letters.display_rules()
