@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 B + !C => A
 
 ?A 
@@ -6,3 +7,13 @@ B + !C => A
 #=B			# A should be true.
 #=C			# A should be false.
 #=BC		# A should be false.
+=======
+B + !C => A 
+
+?A 
+
+ =			# A should be false. 
+ =B			# A should be true. 
+ =C			# A should be false. 
+ =BC		# A should be false. 
+>>>>>>> a11d9a711f1aad1039451842e891515717e69a39

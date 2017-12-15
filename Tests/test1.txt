@@ -1,5 +1,9 @@
 B => A 
+<<<<<<< HEAD
 D + E => B
+=======
+D + E => B 
+>>>>>>> a11d9a711f1aad1039451842e891515717e69a39
 G + H => F 
 I + J => G 
 G => H 
@@ -9,5 +13,10 @@ N => M
 
 ?AFKP 
 
+<<<<<<< HEAD
 #=DEIJOP		# AFKP is true.
 #=DEIJP		# AFP is true, K is false.
+=======
+# =DEIJOP		# AFKP is true. 
+# =DEIJP		# AFP is true, K is false.
+>>>>>>> a11d9a711f1aad1039451842e891515717e69a39
