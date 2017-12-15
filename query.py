@@ -5,7 +5,6 @@ class Query:
         self.__data = var_list
 
     def facts(self, q):
-        print self.__data
         for char in self.__data:
             for c in q[0]:
                 if char == c:

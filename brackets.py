@@ -155,5 +155,4 @@ class Solve:
                     varlist[end_set[i]] = False
                     self.exclude.append(end_set[i])
                 i += 1
-        print varlist
         return varlist
