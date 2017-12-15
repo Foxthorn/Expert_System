@@ -1,23 +1,36 @@
-from file import *
-from chaining import *
-import sys
+from validate import *
+from query import *
+from brackets import *
 
-if len(sys.argv) > 2:
-    print "To many arguments"
-elif len(sys.argv) == 1:
-    print "To little arguments"
-else:
-    fd = open(sys.argv[1])
-    lines = fd.readlines()
-    file = File_Setup()
-    list = Chain()
-    letters = Chain()
-    file.file_setup(lines)
-    for str in file.lines:
-        for char in str:
-            if char.isalpha() and letters.find(char) is False:
-                letters.add(char)
-    for char in file.facts:
-        letters.set_true(char)
-    letters.add_rules(file.lines)
-    letters.display_rules()
+
+def update_facts(f, v_list):
+    no_i = 0
+    for line in f:
+        for char in line:
+            if char == "!":
+                no_i = 1
+            if char.isalpha() and no_i == 0:
+                v_list[char] = True
+            if char.isalpha() and no_i == 1:
+                v_list[char] = False
+    return v_list
+
+
+change = True
+if len(sys.argv) != 2:
+    print ('Usage: python main.py [filename]')
+    sys.exit(1)
+val = Validate(sys.argv[1])
+kb = Validate.get_kb(val)
+facts = val.get_facts()
+q = Validate.get_quarries(val)
+val_list = Validate.get_dictionary(val)
+val_list = update_facts(facts, val_list)
+solve = Solve(kb)
+while change is True:
+    change = False
+    val_list = solve.split_solve(val_list)
+    if solve.change is True:
+        change = True
+query = Query(val_list)
+query.facts(q)
