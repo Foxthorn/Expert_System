@@ -4,14 +4,7 @@ B => C
 
 ?A 
 
-<<<<<<< HEAD
 #=			# A should be false.
-#=D		# A should be true.
-#=E		# A should be true.
+#=D			# A should be true.
+#=E			# A should be true.
 #=DE		# A should be true.
-=======
-# =			# A should be false. 
-# =D		# A should be true. 
-# =E		# A should be true. 
-# =DE		# A should be true. 
->>>>>>> a11d9a711f1aad1039451842e891515717e69a39
