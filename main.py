@@ -33,4 +33,6 @@ while change is True:
     if solve.change is True:
         change = True
 query = Query(val_list)
-query.facts(q)
+query.facts(facts)
+print "\n",
+query.query(q)
