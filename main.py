@@ -27,7 +27,7 @@ while arg > i:
     val = Validate(sys.argv[i])
     kb = Validate.get_kb(val)
     facts = val.get_facts()
-    q = Validate.get_quarries(val)
+    q = Validate.get_queries(val)
     val_list = Validate.get_dictionary(val)
     val_list = update_facts(facts, val_list)
     solve = Solve(kb)
@@ -37,7 +37,10 @@ while arg > i:
         if solve.change is True:
             change = True
     query = Query(val_list)
-    query.facts(facts)
-    print "\n",
-    query.query(q)
+    if facts != [] and q != []:
+        query.facts(facts)
+        print "\n",
+        query.query(q)
+    else:
+        print "No facts stated"
     i = i + 1

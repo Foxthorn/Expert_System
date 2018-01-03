@@ -28,11 +28,40 @@ class Validate:
                         sys.exit(1)
                 self.__data.append(''.join(text.split()))
 
+    def sort_lines(self, kb):
+        query = self.get_queries()
+        prio = []
+        lines = []
+        i = 0
+        j = 0
+        for char in query[0]:
+            for c in char:
+                if char == '?':
+                    continue
+                prio.append(char)
+        while len(lines) != len(kb) and j <= len(prio):
+            equals = kb[i].split('=>', 1)[1]
+            if prio[j] in equals and kb[i] not in lines:
+                lines.append(kb[i])
+                letters = strip(kb[i].split('=', 1)[0])
+                for char in letters:
+                    if char.isalpha() and char not in prio:
+                        prio.append(char)
+                j += 1
+                i = 0
+            i += 1
+            if i == len(kb):
+                j += 1
+                i = 0
+        lines.reverse()
+        return lines
+
     def get_kb(self):
         out = []
         for line in self.__data:
             if not ((line[0] == '=') | (line[0] == '?')):
                 out.append(line)
+        out = self.sort_lines(out)
         return out
 
     def get_facts(self):
@@ -42,7 +71,7 @@ class Validate:
                 out.append(line)
         return out
 
-    def get_quarries(self):
+    def get_queries(self):
         out = []
         for line in self.__data:
             if line[0] == '?':

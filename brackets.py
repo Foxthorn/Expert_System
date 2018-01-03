@@ -5,7 +5,7 @@ class Solve:
     __data = []
 
     def __init__(self, kb):
-        self.op = ['+', '|', '^', '(', ')', '=', '>']
+        self.op = ['+', '|', '^', '(', ')', '=', '>', '!']
         self.change = False
         self.exclude = []
         for line in kb:
