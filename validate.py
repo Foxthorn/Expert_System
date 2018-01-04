@@ -47,7 +47,6 @@ class Validate:
                 for char in letters:
                     if char.isalpha() and char not in prio:
                         prio.append(char)
-                j += 1
                 i = 0
             i += 1
             if i == len(kb):
