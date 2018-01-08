@@ -9,5 +9,5 @@ N => M
 
 ?AFKP 
 
-# =DEIJOP		# AFKP is true.
-=DEIJP		# AFP is true, K is false.
+=DEIJOP		# AFKP is true.
+#=DEIJP		# AFP is true, K is false.
